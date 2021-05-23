@@ -1,1 +1,214 @@
 /* You can add global styles to this file, and also import other style files */
+
+@import './theme.scss';
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: $app_font;
+    font-size: $app_font_size;
+}
+
+.landing-bg
+{
+    background-image: url('./assets/Bg/bg_1.png');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100%;
+    background-attachment: fixed;
+}
+.app-bg
+{
+  background-image: url('./assets/mainApp-bg/bg.png');
+  background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100%;
+    background-attachment: fixed;
+}
+
+// primary
+
+.background-primary
+{background-color: $primary;}
+
+.color-primary
+{color: $primary}
+
+// secondary
+
+.background-secondary
+{background-color: $secondary;}
+
+.color-secondary
+{color: $secondary}
+
+// white
+
+.background-white
+{ background-color: $white;}
+
+.color-white
+{ color: $white;}
+
+// black
+
+.background-black
+{ background-color: $black;}
+
+.color-black
+{ color: $black;}
+
+// dark
+
+.background-dark
+{ background-color: $dark;}
+
+.color-dark
+{ color: $dark;}
+
+// success color
+
+.background-success
+{ background-color: $success_color;}
+
+.color-success
+{ color: $success_color;}
+
+.background-success-light
+{ background-color: $success_color_light;}
+
+.color-success-light
+{ color: $success_color_light;}
+
+.background-success-dark
+{ background-color: $success_color_dark;}
+
+.color-success-dark
+{ color: $success_color_dark;}
+
+// error color
+
+.background-error
+{ background-color: $error_color;}
+
+.color-error
+{ color: $error_color;}
+
+.background-error-light
+{ background-color: $error_color_light;}
+
+.color-error-light
+{ color: $error_color_light;}
+
+.background-error-dark
+{ background-color: $error_color_dark;}
+
+.color-error-dark
+{ color: $error_color_dark;}
+
+// warning color
+
+.background-warning
+{ background-color: $warning_color;}
+
+.color-warning
+{ color: $warning_color;}
+
+.background-warning-light
+{ background-color: $warning_color_light;}
+
+.color-warning-light
+{ color: $warning_color_light;}
+
+.background-warning-dark
+{ background-color: $warning_color_dark;}
+
+.color-warning-dark
+{ color: $warning_color_dark;}
+
+// grey color
+.background-grey {
+    background-color: $grey;
+}
+
+.color-grey {
+    color: $grey;
+}
+
+.background-grey-light {
+    background-color: $grey_light;
+}
+
+.color-grey-light {
+    color: $grey_light;
+}
+
+// alignment
+.text-center {
+    text-align: center;
+}
+
+.text-left {
+    text-align: left;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.text-justify {
+    text-align: justify;
+}
+
+// float
+.float-left {
+    float: left;
+}
+
+.float-right {
+    float: right;
+}
+
+// form-field
+.form-field
+{
+    margin-top: 15px;
+    width: 100%;
+}
+
+// material icon
+.mat-icon {
+    width: 24px;
+    height: 24px;
+    //padding-right: 15px;
+    font-size: 130%;
+}
+
+// ul and li
+ul {
+    list-style: none;
+}
+
+li {
+    display: inline;
+    margin-top: 5px;
+    padding-left: 20px;
+}
+
+a {
+    color: $secondary;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+a:hover {
+    color: $accent;
+    text-decoration: none;
+    cursor:pointer
+}

@@ -1,0 +1,68 @@
+.login-page {
+
+  .container
+  {
+    align-items: center;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+  }
+  mat-card{
+    width: 35%;
+    padding-top:0;
+    padding-bottom: 0;
+    border-radius: 20px;
+    margin: auto;
+    .login-card-content
+    {
+      margin: 0;
+
+      .title
+      {
+        padding: 25px;
+        text-align: center;
+        .text
+        {
+          font-size: 170%;
+          font-weight: 600;
+        }
+      }
+    }
+    .login-b
+    {
+      margin: 20px;
+      .l-btn
+      {
+        color: #ffffff;
+        background-color: #19C2AB;
+        padding: 1px 25px 1px 25px;
+        border-radius: 15px;
+        font-size: 130%;
+        font-weight: 500;
+      }
+    }
+
+    .bottom-text
+    {
+      margin: 20px;
+      font-size: 110%;
+    }
+    .a-text
+    {
+      color:#19C2AB;
+      font-weight: 500;
+    }
+    .a-text:hover
+    {
+      color:#32756C;
+    }
+  }
+}
+
+::ng-deep .mat-form-field-flex > .mat-form-field-infix { padding: 0.4em 0px !important;}
+::ng-deep .mat-form-field-label-wrapper { top: -1.5em; }
+
+::ng-deep .mat-form-field-appearance-outline.mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label {
+    transform: translateY(-1.1em) scale(.75);
+    width: 133.33333%;
+}

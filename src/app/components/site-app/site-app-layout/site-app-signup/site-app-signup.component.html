@@ -1,0 +1,47 @@
+<div class="login-page">
+  <div class="container">
+    <mat-card class="login-card mat-elevation-z7">
+      <mat-card-content class="login-card-content">
+        <div class="login-f">
+          <div class="col-md text-center">
+            <div class="title">
+              <span class="text">REGISTER</span>
+            </div>
+            <div class="form-fields">
+              <form class="form" #registerForm="ngForm" (submit)="onRegister(registerForm)">
+                <mat-form-field class="form-field" appearance=outline>
+                  <mat-label>Name</mat-label>
+                  <input matInput type=text name=name ngModel #nameInput="ngModel" required>
+                </mat-form-field>
+                <mat-form-field class="form-field" appearance=outline>
+                  <mat-label>Email id</mat-label>
+                  <input matInput type=email name=email ngModel #emailInput="ngModel" required email>
+                </mat-form-field>
+                <mat-form-field class="form-field" appearance=outline>
+                  <mat-label>Password</mat-label>
+                  <input matInput [type]="hide ? 'password' : 'text'" name=password ngModel #passwordInput="ngModel" required>
+                  <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                    <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                  </button>
+                </mat-form-field>
+                <div class="login-b">
+                  <button mat-raised-button class="l-btn mat-elevation-z5">
+                    Sign up
+                  </button>
+                </div>
+              </form>
+              <div class="bottom-text">
+                <span>
+                  Already a user,
+                  <a routerLink="">
+                      <span class="a-text">Sign in</span>
+                  </a>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

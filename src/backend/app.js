@@ -1,11 +1,12 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const bodyParser = require('body-parser');
 const app = express();
 
 //const postRoutes = require();
-//const userRoutes = require();
+const userRoutes = require('./routes/userAuth');
 
-mongoose.connect('mongodb+srv://dbDocsEhr:kJ3L1FoaXhI2VXLu@cluster0.gtejq.mongodb.net/dbEHR?retryWrites=true&w=majority', {useNewUrlParser: true, useUnifiedTopology: true})
+mongoose.connect('mongodb+srv://dbDocsEhr:kJ3L1FoaXhI2VXLu@cluster0.gtejq.mongodb.net/dbEHR?retryWrites=true&w=majority', {useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true})
   .then(() => {
     console.log('Connected to Database')
   })
@@ -13,6 +14,8 @@ mongoose.connect('mongodb+srv://dbDocsEhr:kJ3L1FoaXhI2VXLu@cluster0.gtejq.mongod
     console.log('Connected Failed')
   });
 
+  app.use(bodyParser.json());
+  app.use(bodyParser.urlencoded({ extend: true }));
 
 app.use((req, res, next) => {
   res.setHeader('Access-Control-Allow-Origin', '*');
@@ -23,6 +26,6 @@ app.use((req, res, next) => {
 });
 
 // app.use("/api/posts", postRoutes);
-// app.use("/api/user", userRoutes);
+app.use("/api/user", userRoutes);
 
 module.exports = app;

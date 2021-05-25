@@ -1,0 +1,127 @@
+.toolbar
+{
+  .example-app-name
+  {
+    cursor: pointer;
+  }
+}
+.example-container {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  .drawer
+  {
+    width: 20%;
+    height: 100%;
+    box-shadow: 3px 10px 15px 4px #727272;
+    overflow-y: hidden;
+    display: flex;
+    flex-direction: column;
+
+  }
+  .log-out
+  {
+    margin: 5px;
+    border-radius: 20px;
+    padding: 0px 20px 0px 20px;
+  }
+  .add-p
+  {
+    float: right;
+    position: fixed;
+    bottom: 10px;
+    right: 15px;
+    z-index: 1;
+    font-size: 150%;
+  }
+  .profile-image
+  {
+    margin: auto;
+    display: block;
+  }
+  .p-img
+  {
+    margin: auto;
+    display: block;
+    width: 100px;
+    border-radius: 80px;
+  }
+  .u-name
+  {
+    margin: 0px;
+  }
+  .edit-btn
+  {
+    margin: auto;
+    display: table;
+  }
+  .patient-card
+  {
+    margin-top: 10px;
+    padding: 0px;
+    border-radius: 20px;
+    //opacity: 0.7;
+  }
+  .header
+  {
+    padding: 0px;
+    border-radius: 20px 20px 0px 0px;
+    font-size: 100%;
+  }
+  .sub-title
+  {
+    margin-bottom: 3px;
+    font-size: 100%;
+    font-weight: 500;
+    color: #333333;
+  }
+  .title
+  {
+    margin-bottom: 0px;
+    font-size: 100%;
+    font-weight: 600;
+    color: #333333;
+  }
+  .h-line
+  {
+    margin:0px;
+  }
+  .list
+  {
+    padding: 10px;
+    overflow: auto;
+
+  }
+  .list::-webkit-scrollbar-track
+  {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	  background-color: #F5F5F5;
+  }
+  .list::-webkit-scrollbar
+  {
+    width: 6px;
+	background-color: #F5F5F5;
+  }
+  .list::-webkit-scrollbar-thumb
+  {
+    background-color: #000000;
+  }
+  .item-list
+  {
+    padding: 0px;
+  }
+  .content
+  {
+    padding: 5px;
+  }
+  .c-item
+  {
+    padding: 0px 6px 0px 6px;
+    border-radius: 20px;
+    font-size: 90%;
+  }
+}
+
+mat-spinner{
+  margin:auto;
+}

@@ -1,0 +1,40 @@
+.add-patient-page
+{
+  .container
+  {
+    align-items: center;
+    //min-height: 90vh;
+    display: flex;
+    justify-content: center;
+  }
+  .heading-page
+  {
+    margin-top: 2%;
+    font-size: 150%;
+    font-weight: 500;
+  }
+  .mat-card{
+    margin-top: 15px;
+    width: 100%;
+    padding-top: 0px;
+    padding-bottom: 0px;
+
+    .add-patient-card-content
+    {
+      margin: 0;
+    }
+  }
+  .title
+  {
+    padding: 0px;
+    font-weight: 500;
+    font-size: 120%;
+    //background-color: rgb(194, 194, 194);
+  }
+  .btn-save
+  {
+    font-size: 120%;
+    padding: 0px 25px 0px 25px;
+    font-weight: 500;
+  }
+}

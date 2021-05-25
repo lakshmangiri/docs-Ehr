@@ -12,6 +12,10 @@ import { SiteAppSigninComponent } from './components/site-app/site-app-layout/si
 import { SiteAppSignupComponent } from './components/site-app/site-app-layout/site-app-signup/site-app-signup.component';
 import { MaterialModule } from './module/material/material.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MainAppDashboardComponent } from './components/main-app/main-app-layout/main-app-dashboard/main-app-dashboard.component';
+import { MainAppAddPatientComponent } from './components/main-app/main-app-layout/main-app-add-patient/main-app-add-patient.component';
+import { CommonSideNavComponent } from './components/common/common-side-nav/common-side-nav.component';
+import { CommonHeaderComponent } from './components/common/common-header/common-header.component';
 
 
 @NgModule({
@@ -20,7 +24,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     MainAppLayoutComponent,
     SiteAppLayoutComponent,
     SiteAppSigninComponent,
-    SiteAppSignupComponent
+    SiteAppSignupComponent,
+    MainAppDashboardComponent,
+    MainAppAddPatientComponent,
+    CommonSideNavComponent,
+    CommonHeaderComponent
   ],
   imports: [
     BrowserModule,

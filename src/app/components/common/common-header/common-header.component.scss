@@ -1,0 +1,44 @@
+.toolbar
+{
+  background-color: #FFFFFF;
+  height: 55px;
+  box-shadow: 1px 1px 50px rgba(26, 26, 26, 0.685);
+
+  .example-spacer {
+    flex: 1 1 auto;
+  }
+  ul {
+    margin-bottom: 0px;
+  };
+  .chat-button
+  {
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+    font-size: 110%;
+  }
+  .notification-button
+  {
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+    // width: 40px;
+    // height: 40px;
+    margin-right: 10px;
+    font-size: 110%;
+  }
+  .user-button
+  {
+    border-radius: 10px;
+    //box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+    margin: 0px;
+    padding: 0px;
+
+    .profile-img
+    {
+      width: 30px;
+      border-radius: 100px;
+      margin: 10px;
+    }
+  }
+}
+

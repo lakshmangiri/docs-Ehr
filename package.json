@@ -27,6 +27,7 @@
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.12.10",
     "mongoose-unique-validator": "^2.0.3",
+    "ngx-spinner": "^11.0.1",
     "nodemon": "^2.0.7",
     "rxjs": "~6.5.4",
     "tslib": "^1.10.0",

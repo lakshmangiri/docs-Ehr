@@ -1,8 +1,8 @@
 .toolbar
 {
   background-color: #FFFFFF;
-  height: 55px;
-  box-shadow: 1px 1px 50px rgba(26, 26, 26, 0.685);
+  height: 58px;
+  //box-shadow: 1px 1px 50px rgba(26, 26, 26, 0.685);
 
   .example-spacer {
     flex: 1 1 auto;
@@ -29,9 +29,10 @@
   .user-button
   {
     border-radius: 10px;
-    //box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+    height: 90%;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
     margin: 0px;
-    padding: 0px;
+    //padding: 0px;
 
     .profile-img
     {

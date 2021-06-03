@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const app = express();
 
-//const postRoutes = require();
+const postRoutes = require('./routes/patientPostRoute/post');
 const userRoutes = require('./routes/userAuth');
 
 mongoose.connect('mongodb+srv://dbDocsEhr:kJ3L1FoaXhI2VXLu@cluster0.gtejq.mongodb.net/dbEHR?retryWrites=true&w=majority', {useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true})
@@ -15,17 +15,17 @@ mongoose.connect('mongodb+srv://dbDocsEhr:kJ3L1FoaXhI2VXLu@cluster0.gtejq.mongod
   });
 
   app.use(bodyParser.json());
-  app.use(bodyParser.urlencoded({ extend: true }));
+  app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use((req, res, next) => {
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader("Access-Control-Allow-Credentials", "true");
-  res.setHeader("Access-Control-Allow-Headers", "content-type");
+  res.setHeader("Access-Control-Allow-Headers", "Content-type");
   res.setHeader('Access-Control-Allow-Methods', 'GET, PUT, PATCH, POST, DELETE, OPTIONS');
   next();
 });
 
-// app.use("/api/posts", postRoutes);
+app.use("/api/posts", postRoutes);
 app.use("/api/user", userRoutes);
 
 module.exports = app;

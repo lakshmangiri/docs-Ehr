@@ -28,7 +28,7 @@ import { CommonHeaderComponent } from './components/common/common-header/common-
     MainAppDashboardComponent,
     MainAppAddPatientComponent,
     CommonSideNavComponent,
-    CommonHeaderComponent
+    CommonHeaderComponent,
   ],
   imports: [
     BrowserModule,

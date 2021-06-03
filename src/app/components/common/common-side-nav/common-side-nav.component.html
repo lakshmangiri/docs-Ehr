@@ -4,29 +4,27 @@
     <div class="patient-card-list" style="overflow-y: auto;">
       <mat-nav-list class="list">
         <mat-spinner *ngIf ="isLoading" diameter = 50 color = accent></mat-spinner>
-        <span>
-          <!-- *ngFor = "let post of post" -->
-        <a [routerLink]="['/patient']" class="item-list">
-          <!-- , post.id -->
+        <span *ngFor = "let post of post">
+        <a [routerLink]="['/patient', post.id]" class="item-list">
           <mat-card class="patient-card">
             <mat-card-header class="header background-secondary">
               <mat-card-subtitle class="sub-title">Patient name</mat-card-subtitle>
-              <mat-card-title class="title color-white">name</mat-card-title>
+              <mat-card-title class="title color-white">{{ post.name }}</mat-card-title>
             </mat-card-header>
             <mat-card-content class="content">
               <div class="row m-0">
                 <div class="col-md mt-2">
-                  <p class="c-item pl-2 pr-2 background-grey">Age: age</p>
+                  <p class="c-item pl-2 pr-2 background-grey">Age: {{ post.age }}</p>
                 </div>
                 <div class="col-md mt-2">
-                  <p class="c-item pl-2 pr-2 background-grey">G: gender</p>
+                  <p class="c-item pl-2 pr-2 background-grey">G: {{ post.gender }}</p>
                 </div>
               </div>
             </mat-card-content>
           </mat-card>
         </a>
       </span>
-        <!-- <p *ngIf="post.length <= 0 && !isLoading" class="text-center mat-body-1">No Patients.</p> -->
+        <p *ngIf="post.length <= 0 && !isLoading" class="text-center mat-body-1">No Patients.</p>
       </mat-nav-list>
     </div>
     <button mat-fab color=accent class="add-p" (click)="onAddPatientPage()">

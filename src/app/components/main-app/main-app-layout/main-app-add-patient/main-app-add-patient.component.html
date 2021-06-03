@@ -1,11 +1,11 @@
 <div class="add-patient-page">
   <div class="container-fluid">
     <div class="row">
-      <mat-spinner *ngIf="isLoading"></mat-spinner>
       <div class="heading-page">
         <span>Add Patient</span>
       </div>
-      <form [formGroup]='form' (submit)="onSavePost()" *ngIf="!isLoading">
+      <mat-spinner *ngIf="isLoading"></mat-spinner>
+      <form class="form" (submit)="onSavePost(patientForm)" #patientForm="ngForm" *ngIf="!isLoading">
         <mat-card class=add-patient-card>
           <mat-card-content class="add-patient-card-content">
             <div class="row">
@@ -20,20 +20,20 @@
                     <div class="col-md-6">
                       <mat-form-field class="form-field">
                         <mat-label>Title</mat-label>
-                        <mat-select formControlName="title">
+                        <mat-select ngModel [ngModel]="patient?.title" #title="ngModel" name=title required>
                           <mat-option value=Mr>Mr</mat-option>
                           <mat-option value=Mrs>Mrs</mat-option>
                           <mat-option value=Ms>Ms</mat-option>
                           <mat-option value=Master>Master</mat-option>
                           <mat-option value=Mr>Dr</mat-option>
                         </mat-select>
-                        <mat-error *ngIf="form.get('title').invalid">select a title</mat-error>
+                        <mat-error *ngIf=title.invalid>required*</mat-error>
                       </mat-form-field>
                     </div>
                     <div class="col-md-6">
                       <mat-form-field class="form-field">
-                        <input matInput type=text placeholder="Name" name="name" formControlName=name>
-                        <mat-error *ngIf="form.get('name').invalid">Enter your name</mat-error>
+                        <input matInput type=text [ngModel]="patient?.name" placeholder="Name" name="name" ngModel #name="ngModel" required>
+                        <mat-error *ngIf=name.invalid>required*</mat-error>
                       </mat-form-field>
                     </div>
                   </div>
@@ -41,14 +41,14 @@
                   <div class="row">
                     <div class="col-md-6">
                       <mat-form-field class="form-field">
-                        <input matInput type=email placeholder="Email-id" name="emailId" formControlName=emailId>
-                        <mat-error *ngIf="form.get('emailId').invalid">Enter your email id</mat-error>
+                        <input matInput type=email [ngModel]="patient?.emailId" placeholder="Email-id" name="emailId" ngModel #emailId="ngModel" required email>
+                        <mat-error *ngIf=emailId.invalid>required*</mat-error>
                       </mat-form-field>
                     </div>
                     <div class="col-md-6">
                       <mat-form-field class="form-field">
-                        <input matInput type=text placeholder="Contact No" name="contactNo" formControlName=contactNo>
-                        <mat-error *ngIf="form.get('contactNo').invalid">Select date</mat-error>
+                        <input matInput type=text [ngModel]="patient?.contactNo" placeholder="Contact No" name="contactNo" ngModel #contactNo="ngModel" required>
+                        <mat-error *ngIf=contactNo.invalid>required*</mat-error>
                       </mat-form-field>
                     </div>
                   </div>
@@ -57,24 +57,24 @@
                     <div class="col-md-6">
                       <mat-form-field class="form-field">
                         <mat-label>Gender</mat-label>
-                          <mat-select formControlName="gender">
+                          <mat-select ngModel [ngModel]="patient?.gender" #gender="ngModel" name=gender required>
                             <mat-option value=male>Male</mat-option>
                             <mat-option value=female>Female</mat-option>
                             <mat-option value=other>Other</mat-option>
                           </mat-select>
-                          <mat-error *ngIf="form.get('gender').invalid">Select gender</mat-error>
+                          <mat-error *ngIf=gender.invalid>required*</mat-error>
                         </mat-form-field>
                       </div>
                       <div class="col-md-6">
                         <mat-form-field class="form-field">
                           <mat-label>Martial status</mat-label>
-                          <mat-select formControlName="martialStatus">
+                          <mat-select name=martialStatus [ngModel]="patient?.martialStatus" ngModel #martialStatus="ngModel" required>
                             <mat-option value=single>Single</mat-option>
                             <mat-option value=married>Married</mat-option>
                             <mat-option value=divorced>Divorced</mat-option>
                             <mat-option value=divorced>Other</mat-option>
                           </mat-select>
-                          <mat-error *ngIf="form.get('martialStatus').invalid">Select martial status</mat-error>
+                          <mat-error *ngIf=martialStatus.invalid>required*</mat-error>
                         </mat-form-field>
                       </div>
                     </div>
@@ -83,15 +83,15 @@
                     <div class="col-md-6">
                       <mat-form-field class="form-field">
                         <mat-label>DOB</mat-label>
-                        <input matInput [matDatepicker]="picker" formControlName="dob">
+                        <input matInput [matDatepicker]="picker" [ngModel]="patient?.dob" name=dob ngModel #dob="ngModel" required>
                         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                         <mat-datepicker #picker></mat-datepicker>
-                        <mat-error *ngIf="form.get('dob').invalid">Select date</mat-error>
+                        <mat-error *ngIf=dob.invalid>required*</mat-error>
                       </mat-form-field>
                     </div>
                     <div class="col-md-6">
                       <mat-form-field class="form-field">
-                        <input matInput type=text placeholder="Age" name="age" formControlName=age>
+                        <input matInput type=text [ngModel]="patient?.age" placeholder="Age" name="age" ngModel #age="ngModel" required>
                       </mat-form-field>
                     </div>
                   </div>
@@ -99,12 +99,14 @@
                   <div class="row">
                     <div class="col-md-6">
                       <mat-form-field class="form-field">
-                        <input matInput type=text placeholder="Height" name="height" formControlName=height>
+                        <input matInput type=text [ngModel]="patient?.height" placeholder="Height" name="height" ngModel #height="ngModel" required>
+                        <mat-error *ngIf=height.invalid>required*</mat-error>
                       </mat-form-field>
                     </div>
                     <div class="col-md-6">
                       <mat-form-field class="form-field">
-                        <input matInput type=text placeholder="Weight" name="weight" formControlName=weight>
+                        <input matInput type=text [ngModel]="patient?.weight" placeholder="Weight" name="weight" ngModel #weight="ngModel" required>
+                        <mat-error *ngIf=weight.invalid>required*</mat-error>
                       </mat-form-field>
                     </div>
                   </div>
@@ -112,12 +114,14 @@
                   <div class="row">
                     <div class="col-md-6">
                       <mat-form-field class="form-field">
-                        <input matInput type=text placeholder="BMI" name="bmi" formControlName=bmi>
+                        <input matInput type=text [ngModel]="patient?.bmi" placeholder="BMI" name="bmi" ngModel #bmi="ngModel" required>
+                        <mat-error *ngIf=bmi.invalid>required*</mat-error>
                       </mat-form-field>
                     </div>
                     <div class="col-md-6">
                       <mat-form-field class="form-field">
-                        <input matInput type=text placeholder="Blood group" name="bloodGroup" formControlName=bloodGroup>
+                        <input matInput type=text [ngModel]="patient?.bloodGroup" placeholder="Blood group" name="bloodGroup" ngModel #bloodGroup="ngModel" required>
+                        <mat-error *ngIf=bloodGroup.invalid>required*</mat-error>
                       </mat-form-field>
                     </div>
                   </div>
@@ -132,31 +136,36 @@
                   <div class="row">
                     <div class="col-md-6">
                       <mat-form-field class="form-field">
-                        <input matInput type=text placeholder="Alcohol consumption" name="alcoholConsumption" formControlName=alcoholConsumption>
+                        <input matInput type=text [ngModel]="patient?.alcoholConsumption" placeholder="Alcohol consumption" name="alcoholConsumption" ngModel #alcoholConsumption="ngModel" required>
+                        <mat-error *ngIf=alcoholConsumption.invalid>required*</mat-error>
                       </mat-form-field>
                     </div>
                     <div class="col-md-6">
                       <mat-form-field class="form-field">
-                        <input matInput type=text placeholder="Smoking Habits" name="smokingHabits" formControlName=smokingHabits>
-                      </mat-form-field>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-md-6">
-                      <mat-form-field class="form-field">
-                        <input matInput type=text placeholder="Allergies" name="allergies" formControlName=allergies>
-                      </mat-form-field>
-                    </div>
-                    <div class="col-md-6">
-                      <mat-form-field class="form-field">
-                        <input matInput type=text placeholder="Current Medications" name="currentMedications" formControlName=currentMedications>
+                        <input matInput type=text [ngModel]="patient?.smokingHabits" placeholder="Smoking Habits" name="smokingHabits" ngModel #smokingHabits="ngModel" required>
+                        <mat-error *ngIf=smokingHabits.invalid>required*</mat-error>
                       </mat-form-field>
                     </div>
                   </div>
                   <div class="row">
                     <div class="col-md-6">
                       <mat-form-field class="form-field">
-                        <input matInput type=text placeholder="Past Medications" name="pastMedications" formControlName=pastMedications>
+                        <input matInput type=text [ngModel]="patient?.allergies" placeholder="Allergies" name="allergies" ngModel #allergies="ngModel" required>
+                        <mat-error *ngIf=allergies.invalid>required*</mat-error>
+                      </mat-form-field>
+                    </div>
+                    <div class="col-md-6">
+                      <mat-form-field class="form-field">
+                        <input matInput type=text [ngModel]="patient?.currentMedications" placeholder="Current Medications" name="currentMedications" ngModel #currentMedications="ngModel" required>
+                        <mat-error *ngIf=currentMedications.invalid>required*</mat-error>
+                      </mat-form-field>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-6">
+                      <mat-form-field class="form-field">
+                        <input matInput type=text [ngModel]="patient?.pastMedications" placeholder="Past Medications" name="pastMedications" ngModel #pastMedications="ngModel" required>
+                        <mat-error *ngIf=pastMedications.invalid>required*</mat-error>
                       </mat-form-field>
                     </div>
                   </div>

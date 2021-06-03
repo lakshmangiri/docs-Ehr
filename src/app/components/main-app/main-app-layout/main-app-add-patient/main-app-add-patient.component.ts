@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
+import { ActivatedRoute, ParamMap } from '@angular/router';
+import { patientData } from 'src/app/model/patientData.model';
+import { PatientPostServiceService } from 'src/app/service/patientPostService/patient-post-service.service';
 
 @Component({
   selector: 'app-main-app-add-patient',
@@ -8,37 +11,104 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 })
 export class MainAppAddPatientComponent implements OnInit {
 
+  patient: patientData;
   isLoading = false;
-  form: FormGroup;
+  private mode = "add-patient";
+  private postId: string;
 
-  constructor() { }
+  constructor(public postService: PatientPostServiceService, public route: ActivatedRoute) { }
 
   ngOnInit(): void {
-
-    this.form = new FormGroup({
-      title: new FormControl(null, {validators: [Validators.required]}),
-      name: new FormControl(null, {validators:[Validators.required,]}),
-      emailId: new FormControl(null, {validators:[Validators.required,Validators.email,]}),
-      contactNo: new FormControl(null, {validators:[Validators.required,]}),
-      gender: new FormControl(null, {validators:[Validators.required,]}),
-      martialStatus: new FormControl(null, {validators:[Validators.required,]}),
-      dob: new FormControl(null, {validators:[Validators.required,]}),
-      age: new FormControl(null, {validators:[Validators.required,]}),
-      height: new FormControl(null, {validators:[Validators.required,]}),
-      weight: new FormControl(null, {validators:[Validators.required,]}),
-      bmi: new FormControl(null, {validators:[Validators.required,]}),
-      bloodGroup: new FormControl(null, {validators:[Validators.required,]}),
-      alcoholConsumption: new FormControl(null, {validators:[]}),
-      smokingHabits: new FormControl(null, {validators:[]}),
-      allergies: new FormControl(null, {validators:[]}),
-      currentMedications: new FormControl(null, {validators:[]}),
-      pastMedications: new FormControl(null, {validators:[]}),
+    this.route.paramMap.subscribe((paramMap: ParamMap) => {
+      if (paramMap.has("postId")) {
+        this.mode = 'edit-patient';
+        this.postId = paramMap.get("postId");
+        this.isLoading = true;
+        this.postService.getPost(this.postId).subscribe(postData => {
+          this.isLoading = false;
+          this.patient = {
+            id: postData._id,
+            title: postData.title,
+            name: postData.name,
+            emailId: postData.emailId,
+            contactNo: postData.contactNo,
+            gender: postData.gender,
+            martialStatus: postData.martialStatus,
+            dob: postData.dob,
+            age: postData.age,
+            weight: postData.weight,
+            height: postData.height,
+            bmi: postData.bmi,
+            bloodGroup: postData.bloodGroup,
+            alcoholConsumption: postData.alcoholConsumption,
+            smokingHabits: postData.smokingHabits,
+            allergies: postData.allergies,
+            currentMedications: postData.currentMedications,
+            pastMedications: postData.pastMedications,
+          };
+        });
+      }
+      else
+      {
+        this.mode = "add-patient";
+        this.postId = null;
+      }
     });
   }
 
-  onSavePost()
+  onSavePost(form: NgForm)
   {
-    console.log(this.form.value);
+    if (form.invalid)
+    {
+      return;
+    }
+    this.isLoading = true;
+    if (this.mode == 'add-patient')
+    {
+      this.postService.addPost(
+        form.value.title,
+        form.value.name,
+        form.value.emailId,
+        form.value.contactNo,
+        form.value.gender,
+        form.value.martialStatus,
+        form.value.dob,
+        form.value.age,
+        form.value.weight,
+        form.value.height,
+        form.value.bmi,
+        form.value.bloodGroup,
+        form.value.alcoholConsumption,
+        form.value.smokingHabits,
+        form.value.allergies,
+        form.value.currentMedications,
+        form.value.pastMedications,
+      );
+    }
+    else
+    {
+      this.postService.updatePost(
+        this.postId,
+        form.value.title,
+        form.value.name,
+        form.value.emailId,
+        form.value.contactNo,
+        form.value.gender,
+        form.value.martialStatus,
+        form.value.dob,
+        form.value.age,
+        form.value.weight,
+        form.value.height,
+        form.value.bmi,
+        form.value.bloodGroup,
+        form.value.alcoholConsumption,
+        form.value.smokingHabits,
+        form.value.allergies,
+        form.value.currentMedications,
+        form.value.pastMedications
+      );
+    }
+    form.resetForm();
+    console.log(form.value);
   }
-
 }

@@ -1,0 +1,39 @@
+<div class="container">
+<h2 class="mat-h3">My Patients</h2>
+<div class="mat-elevation-z6">
+  <table mat-table class="full-width-table" matSort aria-label="Elements">
+    <!-- Id Column -->
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Id</th>
+      <td mat-cell *matCellDef="let p of post">{{p.id}}</td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Patient Name</th>
+      <td mat-cell *matCellDef="let p of post">{{p.name}}</td>
+    </ng-container>
+    <!-- Age column -->
+    <ng-container matColumnDef="age">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Age</th>
+      <td mat-cell *matCellDef="let post">{{post.name}}</td>
+    </ng-container>
+
+    <!-- Gender column -->
+    <ng-container matColumnDef="gender">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Gender</th>
+      <td mat-cell *matCellDef="let post">{{post.name}}</td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let post; columns: displayedColumns;"></tr>
+  </table>
+
+  <mat-paginator #paginator
+      [length]="post?.length"
+      [pageIndex]="0"
+      [pageSize]="10"
+      [pageSizeOptions]="[20, 40, 80, 100]">
+  </mat-paginator>
+</div>
+</div>

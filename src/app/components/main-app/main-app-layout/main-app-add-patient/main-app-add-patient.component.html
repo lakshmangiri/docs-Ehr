@@ -1,12 +1,12 @@
 <div class="add-patient-page">
   <div class="container-fluid">
     <div class="row">
-      <div class="heading-page">
+      <div class="heading-page" *ngIf="!isLoading">
         <span>Add Patient</span>
       </div>
-      <mat-spinner *ngIf="isLoading"></mat-spinner>
+      <mat-spinner size = "large" color = "#000000" type = "ball-clip-rotate-pulse" color=accent *ngIf="isLoading"></mat-spinner>
       <form class="form" (submit)="onSavePost(patientForm)" #patientForm="ngForm" *ngIf="!isLoading">
-        <mat-card class=add-patient-card>
+        <mat-card class="add-patient-card mat-elevation-z2">
           <mat-card-content class="add-patient-card-content">
             <div class="row">
               <!-- Personal details -->
@@ -18,7 +18,7 @@
                   <!-- Title and Name -->
                   <div class="row">
                     <div class="col-md-6">
-                      <mat-form-field class="form-field">
+                      <mat-form-field class="form-field" appearance=outline>
                         <mat-label>Title</mat-label>
                         <mat-select ngModel [ngModel]="patient?.title" #title="ngModel" name=title required>
                           <mat-option value=Mr>Mr</mat-option>
@@ -31,7 +31,7 @@
                       </mat-form-field>
                     </div>
                     <div class="col-md-6">
-                      <mat-form-field class="form-field">
+                      <mat-form-field class="form-field" appearance=outline>
                         <input matInput type=text [ngModel]="patient?.name" placeholder="Name" name="name" ngModel #name="ngModel" required>
                         <mat-error *ngIf=name.invalid>required*</mat-error>
                       </mat-form-field>
@@ -40,13 +40,13 @@
                   <!-- Email-id and Contact Number -->
                   <div class="row">
                     <div class="col-md-6">
-                      <mat-form-field class="form-field">
+                      <mat-form-field class="form-field" appearance=outline>
                         <input matInput type=email [ngModel]="patient?.emailId" placeholder="Email-id" name="emailId" ngModel #emailId="ngModel" required email>
                         <mat-error *ngIf=emailId.invalid>required*</mat-error>
                       </mat-form-field>
                     </div>
                     <div class="col-md-6">
-                      <mat-form-field class="form-field">
+                      <mat-form-field class="form-field" appearance=outline>
                         <input matInput type=text [ngModel]="patient?.contactNo" placeholder="Contact No" name="contactNo" ngModel #contactNo="ngModel" required>
                         <mat-error *ngIf=contactNo.invalid>required*</mat-error>
                       </mat-form-field>
@@ -55,7 +55,7 @@
                   <!-- Gender and Martial status -->
                   <div class="row">
                     <div class="col-md-6">
-                      <mat-form-field class="form-field">
+                      <mat-form-field class="form-field" appearance=outline>
                         <mat-label>Gender</mat-label>
                           <mat-select ngModel [ngModel]="patient?.gender" #gender="ngModel" name=gender required>
                             <mat-option value=male>Male</mat-option>
@@ -66,7 +66,7 @@
                         </mat-form-field>
                       </div>
                       <div class="col-md-6">
-                        <mat-form-field class="form-field">
+                        <mat-form-field class="form-field" appearance=outline>
                           <mat-label>Martial status</mat-label>
                           <mat-select name=martialStatus [ngModel]="patient?.martialStatus" ngModel #martialStatus="ngModel" required>
                             <mat-option value=single>Single</mat-option>
@@ -81,7 +81,7 @@
                     <!-- DOB and Age -->
                   <div class="row">
                     <div class="col-md-6">
-                      <mat-form-field class="form-field">
+                      <mat-form-field class="form-field" appearance=outline>
                         <mat-label>DOB</mat-label>
                         <input matInput [matDatepicker]="picker" [ngModel]="patient?.dob" name=dob ngModel #dob="ngModel" required>
                         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
@@ -90,7 +90,7 @@
                       </mat-form-field>
                     </div>
                     <div class="col-md-6">
-                      <mat-form-field class="form-field">
+                      <mat-form-field class="form-field" appearance=outline>
                         <input matInput type=text [ngModel]="patient?.age" placeholder="Age" name="age" ngModel #age="ngModel" required>
                       </mat-form-field>
                     </div>
@@ -98,13 +98,13 @@
                   <!-- Height and Weight -->
                   <div class="row">
                     <div class="col-md-6">
-                      <mat-form-field class="form-field">
+                      <mat-form-field class="form-field" appearance=outline>
                         <input matInput type=text [ngModel]="patient?.height" placeholder="Height" name="height" ngModel #height="ngModel" required>
                         <mat-error *ngIf=height.invalid>required*</mat-error>
                       </mat-form-field>
                     </div>
                     <div class="col-md-6">
-                      <mat-form-field class="form-field">
+                      <mat-form-field class="form-field" appearance=outline>
                         <input matInput type=text [ngModel]="patient?.weight" placeholder="Weight" name="weight" ngModel #weight="ngModel" required>
                         <mat-error *ngIf=weight.invalid>required*</mat-error>
                       </mat-form-field>
@@ -113,13 +113,13 @@
                   <!-- BMI and Blood Group -->
                   <div class="row">
                     <div class="col-md-6">
-                      <mat-form-field class="form-field">
+                      <mat-form-field class="form-field" appearance=outline>
                         <input matInput type=text [ngModel]="patient?.bmi" placeholder="BMI" name="bmi" ngModel #bmi="ngModel" required>
                         <mat-error *ngIf=bmi.invalid>required*</mat-error>
                       </mat-form-field>
                     </div>
                     <div class="col-md-6">
-                      <mat-form-field class="form-field">
+                      <mat-form-field class="form-field" appearance=outline>
                         <input matInput type=text [ngModel]="patient?.bloodGroup" placeholder="Blood group" name="bloodGroup" ngModel #bloodGroup="ngModel" required>
                         <mat-error *ngIf=bloodGroup.invalid>required*</mat-error>
                       </mat-form-field>
@@ -135,13 +135,13 @@
                 <div class="forms">
                   <div class="row">
                     <div class="col-md-6">
-                      <mat-form-field class="form-field">
+                      <mat-form-field class="form-field" appearance=outline>
                         <input matInput type=text [ngModel]="patient?.alcoholConsumption" placeholder="Alcohol consumption" name="alcoholConsumption" ngModel #alcoholConsumption="ngModel" required>
                         <mat-error *ngIf=alcoholConsumption.invalid>required*</mat-error>
                       </mat-form-field>
                     </div>
                     <div class="col-md-6">
-                      <mat-form-field class="form-field">
+                      <mat-form-field class="form-field" appearance=outline>
                         <input matInput type=text [ngModel]="patient?.smokingHabits" placeholder="Smoking Habits" name="smokingHabits" ngModel #smokingHabits="ngModel" required>
                         <mat-error *ngIf=smokingHabits.invalid>required*</mat-error>
                       </mat-form-field>
@@ -149,13 +149,13 @@
                   </div>
                   <div class="row">
                     <div class="col-md-6">
-                      <mat-form-field class="form-field">
+                      <mat-form-field class="form-field" appearance=outline>
                         <input matInput type=text [ngModel]="patient?.allergies" placeholder="Allergies" name="allergies" ngModel #allergies="ngModel" required>
                         <mat-error *ngIf=allergies.invalid>required*</mat-error>
                       </mat-form-field>
                     </div>
                     <div class="col-md-6">
-                      <mat-form-field class="form-field">
+                      <mat-form-field class="form-field" appearance=outline>
                         <input matInput type=text [ngModel]="patient?.currentMedications" placeholder="Current Medications" name="currentMedications" ngModel #currentMedications="ngModel" required>
                         <mat-error *ngIf=currentMedications.invalid>required*</mat-error>
                       </mat-form-field>
@@ -163,7 +163,7 @@
                   </div>
                   <div class="row">
                     <div class="col-md-6">
-                      <mat-form-field class="form-field">
+                      <mat-form-field class="form-field" appearance=outline>
                         <input matInput type=text [ngModel]="patient?.pastMedications" placeholder="Past Medications" name="pastMedications" ngModel #pastMedications="ngModel" required>
                         <mat-error *ngIf=pastMedications.invalid>required*</mat-error>
                       </mat-form-field>

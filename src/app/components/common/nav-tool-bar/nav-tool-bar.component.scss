@@ -2,17 +2,30 @@
   height: 100%;
 }
 
+#drawer.menu-close{
+  width: 240px;
+}
+
+#drawer.menu-open{
+  width: 70px;
+}
+
 .sidenav {
-  width: 250px;
+  width: 240px;
   border-radius: 0px 20px 20px 0px;
   background-color: #20F5D8;
   box-shadow: 1px 1px 10px 1px #32756c9c;
 
+  .nav-bar-toggle-button
+  {
+    margin-left: auto;
+  }
   .create-patient-button
   {
+    margin-top: 20px;
     width: 60%;
     display: flex;
-    margin: auto;
+    margin: 40% auto 0px auto;
     background-color: #19C2AB;
     color: #F8F9FA;
     font-size: 110%;;
@@ -32,7 +45,12 @@
 
 .sidenav .mat-nav-list
 {
-  margin-top: 20%;
+  margin-top: 5%;
+
+  a{
+    margin-top: 10px;
+    font-size: 120%;
+  }
 }
 
 .mat-toolbar {

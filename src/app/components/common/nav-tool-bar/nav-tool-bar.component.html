@@ -3,7 +3,16 @@
       [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
       [mode]="(isHandset$ | async) ? 'over' : 'side'"
       [opened]="(isHandset$ | async) === false">
-    <mat-toolbar>Logo</mat-toolbar>
+    <mat-toolbar>
+      <button
+      class="nav-bar-toggle-button"
+      mat-icon-button
+      aria-label="Toggle sidenav"
+      (click)="drawer.toggle()"
+      *ngIf="(isHandset$ | async) === false">
+      <mat-icon>menu</mat-icon>
+    </button>
+    </mat-toolbar>
     <a routerLink="/add-patient">
       <button mat-flat-button color= basic class="create-patient-button">
         Create Patient
@@ -13,10 +22,10 @@
     <mat-nav-list>
       <a mat-list-item routerLink="/dashboard">
         Dashboard
-        <img class=img-icon src="../../../../assets/icons/dashboard.png" width="20px">
+        <img class=img-icon src="../../../../assets/icons/dashboard.png" width="25px">
       </a>
       <a mat-list-item routerLink="/patients">My Patients
-        <img class=img-icon src="../../../../assets/icons/patient.png" width="20px">
+        <img class=img-icon src="../../../../assets/icons/patient.png" width="25px">
       </a>
       <a mat-list-item routerLink="#">My Appointments</a>
     </mat-nav-list>
@@ -30,13 +39,6 @@
         (click)="drawer.toggle()"
         *ngIf="isHandset$ | async">
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
-      </button>
-      <button
-        mat-icon-button
-        aria-label="Toggle sidenav"
-        (click)="drawer.toggle()"
-        *ngIf="(isHandset$ | async) === false">
-        <mat-icon>menu</mat-icon>
       </button>
       <span class="example-spacer"></span>
   <div class="user-profile">

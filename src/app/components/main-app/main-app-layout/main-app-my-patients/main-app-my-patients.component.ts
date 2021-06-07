@@ -19,7 +19,7 @@ export class MainAppMyPatientsComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
   @ViewChild(MatTable) table: MatTable<MainAppMyPatientsItem>;
-  //dataSource: patientData;
+  dataSource = [];
 
   isLoading = false;
   post: patientData[] = [];
@@ -28,7 +28,7 @@ export class MainAppMyPatientsComponent implements OnInit {
   constructor(public postService: PatientPostServiceService, private router: Router) { }
 
   /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
-  displayedColumns = ['id', 'name'];
+  displayedColumns = ['name', 'age', 'gender', 'action'];
 
   ngOnInit() {
     //this.dataSource = new MainAppMyPatientsDataSource();
@@ -38,10 +38,16 @@ export class MainAppMyPatientsComponent implements OnInit {
     .subscribe((posts: patientData[]) => {
       this.isLoading = false;
       this.post = posts;
+      this.dataSource = posts;
     });
   }
 
-  ngOnDestroy() {
+  onDelete(postId: string)
+  {
+    this.postService.deletePost(postId);
+  }
+
+ngOnDestroy() {
     this.postSub.unsubscribe();
   }
 

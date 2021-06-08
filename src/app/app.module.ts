@@ -33,6 +33,7 @@ import { MainAppMyProfileComponent } from './components/main-app/main-app-layout
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatRadioModule } from '@angular/material/radio';
+import { MainAppMyPatientDataComponent } from './components/main-app/main-app-layout/main-app-my-patient-data/main-app-my-patient-data.component';
 
 @NgModule({
   declarations: [
@@ -46,6 +47,7 @@ import { MatRadioModule } from '@angular/material/radio';
     MainAppDashboardComponent,
     MainAppMyPatientsComponent,
     MainAppMyProfileComponent,
+    MainAppMyPatientDataComponent,
   ],
   imports: [
     BrowserModule,

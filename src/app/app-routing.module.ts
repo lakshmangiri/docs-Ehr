@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { MainAppAddPatientComponent } from './components/main-app/main-app-layout/main-app-add-patient/main-app-add-patient.component';
 import { MainAppDashboardComponent } from './components/main-app/main-app-layout/main-app-dashboard/main-app-dashboard.component';
 import { MainAppLayoutComponent } from './components/main-app/main-app-layout/main-app-layout.component';
+import { MainAppMyPatientDataComponent } from './components/main-app/main-app-layout/main-app-my-patient-data/main-app-my-patient-data.component';
 import { MainAppMyPatientsComponent } from './components/main-app/main-app-layout/main-app-my-patients/main-app-my-patients.component';
 import { MainAppMyProfileComponent } from './components/main-app/main-app-layout/main-app-my-profile/main-app-my-profile.component';
 import { SiteAppLayoutComponent } from './components/site-app/site-app-layout/site-app-layout.component';
@@ -40,6 +41,7 @@ const routes: Routes = [
       {path: 'patients', component: MainAppMyPatientsComponent},
       {path: 'add-patient', component: MainAppAddPatientComponent},
       {path: 'edit/:postId', component: MainAppAddPatientComponent},
+      {path: 'my-patient/:postId', component: MainAppMyPatientDataComponent},
       {path: 'my-profile', component: MainAppMyProfileComponent}
     ]
   }

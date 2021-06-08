@@ -1,0 +1,18 @@
+<mat-spinner color=accent *ngIf="isLoading"></mat-spinner>
+<div class="container" *ngIf="!isLoading">
+  <h2 class="mat-h1 mt-3">{{ patient.title + ". " + patient.name }}</h2>
+  <mat-card class="shipping-card">
+    <mat-card-content>
+      <mat-tab-group animationDuration="0ms">
+        <mat-tab label="Personal details">Personal details will be displayed here.</mat-tab>
+        <mat-tab label="Medical Details">Medical Details will be displayed here.</mat-tab>
+        <mat-tab label="Medical Reports">Medical Reports will be displayed here.</mat-tab>
+        <mat-tab label="Medical History">Medical History will be displayed here.</mat-tab>
+        <mat-tab label="Contact details">Contact details will be displayed here.</mat-tab>
+        <mat-tab label="Other details">Other details will be displayed here.</mat-tab>
+      </mat-tab-group>
+    </mat-card-content>
+    <mat-card-actions>
+    </mat-card-actions>
+  </mat-card>
+</div>

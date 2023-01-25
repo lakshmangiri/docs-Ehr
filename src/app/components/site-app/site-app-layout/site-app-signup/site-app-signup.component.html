@@ -1,0 +1,51 @@
+<div class="login-page">
+  <div class="container">
+    <mat-card class="login-card mat-elevation-z7">
+      <mat-spinner size = "large" color = "#000000" type = "ball-clip-rotate-pulse" color=accent *ngIf="isLoading"></mat-spinner>
+      <mat-card-content class="login-card-content" *ngIf="!isLoading">
+        <div class="login-f">
+          <div class="col-md text-center">
+            <div class="title">
+              <span class="text">Sign Up</span>
+            </div>
+            <div class="form-fields">
+              <form class="form" #registerForm="ngForm" (submit)="onRegister(registerForm)">
+                <mat-form-field class="form-field" appearance=outline>
+                  <mat-label>Name</mat-label>
+                  <input matInput type=text name=name ngModel #nameInput="ngModel" required>
+                  <mat-error *ngIf=nameInput.invalid>Name is required</mat-error>
+                </mat-form-field>
+                <mat-form-field class="form-field" appearance=outline>
+                  <mat-label>Email id</mat-label>
+                  <input matInput type=email name=email ngModel #emailInput="ngModel" required email>
+                  <mat-error *ngIf=emailInput.invalid>Email id is required</mat-error>
+                </mat-form-field>
+                <mat-form-field class="form-field" appearance=outline>
+                  <mat-label>Password</mat-label>
+                  <input matInput [type]="hide ? 'password' : 'text'" name=password ngModel #passwordInput="ngModel" required>
+                  <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                    <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                  </button>
+                  <mat-error *ngIf=passwordInput.invalid>Password is required</mat-error>
+                </mat-form-field>
+                <div class="login-b">
+                  <button mat-raised-button class="l-btn mat-elevation-z5">
+                    Sign up
+                  </button>
+                </div>
+              </form>
+              <div class="bottom-text">
+                <span>
+                  Already a user,
+                  <a routerLink="">
+                      <span class="a-text">Sign in</span>
+                  </a>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

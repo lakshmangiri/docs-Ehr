@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'docs-Ehr-v2';
+  title = 'docs-Ehr';
 }

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
-// import { UserAuthService } from 'src/app/service/UserAuthService/user-auth.service';
+import { UserAuthService } from 'src/app/service/user-auth-service/user-auth.service';
 
 @Component({
   selector: 'app-site-app-signup',
@@ -13,7 +13,7 @@ export class SiteAppSignupComponent implements OnInit {
   hide = true;
   isLoading = false;
 
-  // constructor(public authService: UserAuthService, private router: Router) { }
+  constructor(public authService: UserAuthService, private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -25,9 +25,9 @@ export class SiteAppSignupComponent implements OnInit {
       return;
     }
     this.isLoading = true;
-    // this.authService.createUser(form.value.name, form.value.email, form.value.password);
+    this.authService.createUser(form.value.name, form.value.email, form.value.password);
     form.reset();
-    // this.router.navigateByUrl("");
+    this.router.navigateByUrl("");
     console.log(form.value)
   }
 

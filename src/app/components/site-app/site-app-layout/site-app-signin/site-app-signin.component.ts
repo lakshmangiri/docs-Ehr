@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-// import { UserAuthService } from 'src/app/service/user-auth-service/user-auth.service';
+import { UserAuthService } from 'src/app/service/user-auth-service/user-auth.service';
 
 @Component({
   selector: 'app-site-app-signin',
@@ -9,7 +9,7 @@ import { NgForm } from '@angular/forms';
 })
 export class SiteAppSigninComponent implements OnInit {
 
-  // constructor(public authService: UserAuthService) { }
+  constructor(public authService: UserAuthService) { }
 
   ngOnInit(): void {
   }
@@ -20,7 +20,7 @@ export class SiteAppSigninComponent implements OnInit {
     {
       return;
     }
-    //this.authService.login(form.value.email, form.value.password);
+    this.authService.login(form.value.email, form.value.password);
     console.log(form.value)
   }
 }

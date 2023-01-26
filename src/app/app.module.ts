@@ -16,6 +16,7 @@ import { MainAppMyPatientsComponent } from './components/main-app/main-app-layou
 import { MainAppMyPatientDataComponent } from './components/main-app/main-app-layout/main-app-my-patient-data/main-app-my-patient-data.component';
 import { MainAppMyProfileComponent } from './components/main-app/main-app-layout/main-app-my-profile/main-app-my-profile.component';
 import { MainAppAddPatientComponent } from './components/main-app/main-app-layout/main-app-add-patient/main-app-add-patient.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { MainAppAddPatientComponent } from './components/main-app/main-app-layou
     BrowserAnimationsModule,
     MaterialModule,
     FormsModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

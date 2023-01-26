@@ -1,0 +1,21 @@
+ng new project_name
+
+ng add @angular/material
+
+ng g c component_name
+
+ng g m module_name
+
+ng g s service_name
+
+npm install --save express
+
+npm install --save nodemon
+
+npm install --save mongodb
+
+npm install --save mongoose
+
+npm install --save mongoose-unique-validator
+
+npm install --save bcrypt
